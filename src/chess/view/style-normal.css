@@ -1,0 +1,78 @@
+.anchor{
+    -fx-background-image: url('resources/images/bg-normal.jpg');
+}
+@font-face {
+    src: url("resources/fonts/BNazanin.ttf");
+}
+.label-bright {
+    -fx-background-image: url('resources/images/bord-normal.png');
+}
+.button-send {
+    -fx-background-image: url('resources/images/send-normal.png');
+}
+.button-send_light {
+    -fx-background-image: url('resources/images/send-normal-light.png');
+}
+.label-footer {
+    -fx-background-image: url('resources/images/sena-normal.png');
+}
+.label-pen {
+    -fx-background-image: url('resources/images/pen-normal.png');
+}
+.label-clock1 {
+    -fx-background-image: url('resources/images/clock-normal-black.png');
+}
+.label-clock2 {
+    -fx-background-image: url('resources/images/clock-normal-white.png');
+}
+.label-normal {
+    -fx-font-size: 40;
+    -fx-font-family: "B Nazanin";
+    -fx-translate-x: 1100;
+    -fx-translate-y: 45;
+}
+.label-turn {
+    -fx-font-size: 30;
+    -fx-font-family: "B Nazanin";
+}
+.menu-button {
+    -fx-font-size: 21;
+    -fx-font-family: "B Nazanin";
+    -fx-background-color: #1118;
+}
+.label-pawn {
+    -fx-background-image: url('resources/images/ws-normal.png');
+}
+.label-rook {
+    -fx-background-image: url('resources/images/wc-normal.png');
+}
+.label-knight {
+    -fx-background-image: url('resources/images/wh-normal.png');
+}
+.label-bishop {
+    -fx-background-image: url('resources/images/we-normal.png');
+}
+.label-queen {
+    -fx-background-image: url('resources/images/wq-normal.png');
+}
+.label-king {
+    -fx-background-image: url('resources/images/wk-normal.png');
+}
+.label-black_king {
+    -fx-background-image: url('resources/images/bk-normal.png');
+}
+.label-black_queen {
+    -fx-background-image: url('resources/images/bq-normal.png');
+}
+.label-black_bishop {
+    -fx-background-image: url('resources/images/be-normal.png');
+}
+.label-black_knight {
+    -fx-background-image: url('resources/images/bh-normal.png');
+}
+.label-black_rook {
+    -fx-background-image: url('resources/images/bc-normal.png');
+}
+.label-black_pawn {
+    -fx-background-image: url('resources/images/bs-normal.png');
+}

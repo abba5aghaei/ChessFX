@@ -1,0 +1,78 @@
+.anchor{
+    -fx-background-image: url('resources/images/bg-wood.jpg');
+}
+@font-face {
+    src: url("resources/fonts/UrdType.ttf");
+}
+.label-bright {
+    -fx-background-image: url('resources/images/bord-wood.png');
+}
+.button-send {
+    -fx-background-image: url('resources/images/send-wood.png');
+}
+.button-send_light {
+    -fx-background-image: url('resources/images/send-wood-light.png');
+}
+.label-footer {
+    -fx-background-image: url('resources/images/sena-wood.png');
+}
+.label-pen {
+    -fx-background-image: url('resources/images/pen-wood.png');
+}
+.label-clock1 {
+    -fx-background-image: url('resources/images/clock-wood-black.png');
+}
+.label-clock2 {
+    -fx-background-image: url('resources/images/clock-wood-white.png');
+}
+.label-normal {
+    -fx-font-size: 50;
+    -fx-font-family: "Urdu Typesetting";
+    -fx-translate-x: 1130;
+    -fx-translate-y: 20;
+}
+.label-turn {
+    -fx-font-size: 30;
+    -fx-font-family: "Urdu Typesetting";
+}
+.menu-button {
+    -fx-font-size: 22;
+    -fx-font-family: "Urdu Typesetting";
+    -fx-background-color: #1118;
+}
+.label-pawn {
+    -fx-background-image: url('resources/images/ws-wood.png');
+}
+.label-rook {
+    -fx-background-image: url('resources/images/wc-wood.png');
+}
+.label-knight {
+    -fx-background-image: url('resources/images/wh-wood.png');
+}
+.label-bishop {
+    -fx-background-image: url('resources/images/we-wood.png');
+}
+.label-queen {
+    -fx-background-image: url('resources/images/wq-wood.png');
+}
+.label-king {
+    -fx-background-image: url('resources/images/wk-wood.png');
+}
+.label-black_king {
+    -fx-background-image: url('resources/images/bk-wood.png');
+}
+.label-black_queen {
+    -fx-background-image: url('resources/images/bq-wood.png');
+}
+.label-black_bishop {
+    -fx-background-image: url('resources/images/be-wood.png');
+}
+.label-black_knight {
+    -fx-background-image: url('resources/images/bh-wood.png');
+}
+.label-black_rook {
+    -fx-background-image: url('resources/images/bc-wood.png');
+}
+.label-black_pawn {
+    -fx-background-image: url('resources/images/bs-wood.png');
+}

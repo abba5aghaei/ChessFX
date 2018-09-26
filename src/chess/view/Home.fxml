@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane minHeight="768.0" minWidth="1360.0" onMouseEntered="#setScreen" prefHeight="768.0" prefWidth="1360.0" styleClass="anchor" stylesheets="@style-normal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chess.view.Controller">
+   <children>
+      <Label layoutX="58.0" layoutY="66.0" prefHeight="750.0" prefWidth="750.0" styleClass="label-bright" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Label>
+      <ProgressIndicator fx:id="waiter" layoutX="656.0" layoutY="399.0" prefHeight="71.0" prefWidth="94.0" visible="false" />
+      <Label fx:id="waiter_label" layoutX="-480.0" layoutY="290.0" styleClass="label-normal" text="در حال انتظار..." textFill="#21a31a" visible="false" />
+      <Label fx:id="toaster" layoutX="613.0" layoutY="353.0" opacity="0.0" style="-fx-background-color: #000f;" textFill="#e4dada">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="pen" layoutX="1263.0" layoutY="47.0" prefHeight="50.0" prefWidth="50.0" rotate="135.0" styleClass="label-pen" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="52.0">
+         <effect>
+            <DropShadow />
+         </effect></Label>
+      <Label layoutX="1094.0" layoutY="130.0" prefHeight="245.0" prefWidth="347.0" styleClass="label-footer" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="100.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor></Label>
+      <ListView fx:id="sena" layoutX="960.0" layoutY="114.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="193.0" prefWidth="302.0" style="-fx-background-color: #0000;" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="114.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ListView>
+      <Label styleClass="label-normal" text="سناریو" textAlignment="RIGHT" textFill="#ddcbcb" />
+      <Label layoutX="1266.0" layoutY="379.0" styleClass="label-turn" text="نوبت:" textAlignment="RIGHT" textFill="#d3b2b2" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="379.0" />
+      <Label fx:id="white_timer" layoutX="1189.0" layoutY="376.0" prefHeight="85.0" prefWidth="85.0" styleClass="label-clock2" text="  00:00" textFill="#141111" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="370.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="black_timer" disable="true" layoutX="1017.0" layoutY="350.0" prefHeight="85.0" prefWidth="85.0" styleClass="label-clock1" text="  00:00" textFill="#ddcdcd" AnchorPane.rightAnchor="240.0" AnchorPane.topAnchor="370.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="chat" disable="true" editable="false" layoutX="984.0" layoutY="442.0" prefHeight="214.0" prefWidth="292.0" AnchorPane.bottomAnchor="95.0" AnchorPane.rightAnchor="54.0" />
+      <TextField fx:id="pm" disable="true" layoutX="1004.0" layoutY="676.0" prefHeight="0.0" prefWidth="207.0" AnchorPane.bottomAnchor="47.0" AnchorPane.rightAnchor="139.0" />
+      <Button fx:id="dark_button" disable="true" layoutX="1216.0" layoutY="674.0" mnemonicParsing="false" onMouseEntered="#buttonLighter" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: #9990;" styleClass="button-send" AnchorPane.bottomAnchor="42.0" AnchorPane.rightAnchor="54.0" />
+      <MenuButton layoutX="1278.0" layoutY="-11.0" mnemonicParsing="false" text="بازی" textFill="#e4d2d2" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-10.0">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#newGame" text="بازی جدید" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+          <MenuItem mnemonicParsing="false" onAction="#save" text="ذخیره" />
+            <MenuItem mnemonicParsing="false" onAction="#load" text="بارگذاری" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#exit" text="خروج" />
+        </items>
+      </MenuButton>
+      <MenuButton layoutX="1218.0" layoutY="-11.0" mnemonicParsing="false" text="اصلاح" textFill="#e4d2d2" AnchorPane.rightAnchor="84.0" AnchorPane.topAnchor="-10.0">
+         <items>
+            <MenuItem fx:id="undoer" disable="true" mnemonicParsing="false" onAction="#undo" text="حرکت قبلی" />
+            <MenuItem fx:id="redoer" disable="true" mnemonicParsing="false" onAction="#redo" text="حرکت بعدی" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <CheckMenuItem fx:id="reverse_check" mnemonicParsing="false" onAction="#reverseHandler" text="بر عکس" />
+            <MenuItem mnemonicParsing="false" onAction="#pickupGame" text="بر چیدن" />
+         </items>
+      </MenuButton>
+      <MenuButton layoutX="1139.0" layoutY="-15.0" mnemonicParsing="false" text="ابزار" textFill="#e4d2d2" AnchorPane.rightAnchor="177.0" AnchorPane.topAnchor="-10.0">
+         <items>
+            <CheckMenuItem fx:id="musicer" mnemonicParsing="false" onAction="#musicHandler" selected="true" text="موزیک" />
+            <Menu mnemonicParsing="false" text="انتخاب تم">
+              <items>
+                  <MenuItem fx:id="normal" disable="true" mnemonicParsing="false" onAction="#setNormalStyle" text="معمولی" />
+                <MenuItem fx:id="wood" mnemonicParsing="false" onAction="#setWoodStyle" text="چوبی" />
+              </items>
+            </Menu>
+         </items>
+      </MenuButton>
+      <MenuButton layoutX="1058.0" layoutY="-15.0" mnemonicParsing="false" text="راهنما" textFill="#e4d2d2" AnchorPane.rightAnchor="257.0" AnchorPane.topAnchor="-10.0">
+         <items>
+            <MenuItem mnemonicParsing="false" onAction="#help" text="درباره بازی" />
+            <MenuItem mnemonicParsing="false" onAction="#about" text="درباره ما" />
+         </items>
+      </MenuButton>
+      <Label fx:id="ws1" layoutX="50.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="wlc" layoutX="50.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-rook">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="wlh" layoutX="133.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-knight">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="wle" layoutX="216.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-bishop">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="wq" layoutX="298.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-queen">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="wk" layoutX="381.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-king">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="ws2" layoutX="133.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="ws3" layoutX="216.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="ws4" layoutX="298.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="ws5" layoutX="381.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="ws6" layoutX="465.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="ws7" layoutX="548.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="ws8" layoutX="632.0" layoutY="140.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="wrc" layoutX="632.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-rook">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="wre" layoutX="465.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-bishop">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="wrh" layoutX="548.0" layoutY="55.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-knight">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Label>
+      <Label fx:id="bk" layoutX="298.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_king">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs8" layoutX="632.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs7" layoutX="548.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs6" layoutX="465.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs5" layoutX="381.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs4" layoutX="298.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs3" layoutX="216.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs2" layoutX="133.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bs1" layoutX="50.0" layoutY="551.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_pawn">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="brh" layoutX="548.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_knight">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bre" layoutX="465.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_bishop">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="brc" layoutX="632.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_rook">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="bq" layoutX="381.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_queen">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="ble" layoutX="216.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_bishop">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="blh" layoutX="133.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_knight">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Label fx:id="blc" layoutX="50.0" layoutY="633.0" onMouseDragged="#move" onMousePressed="#pickup" onMouseReleased="#release" prefHeight="80.0" prefWidth="80.0" styleClass="label-black_rook">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Label>
+      <Button fx:id="light_button" disable="true" layoutX="950.0" layoutY="388.0" mnemonicParsing="false" onAction="#sendHandller" onMouseExited="#buttonDarker" prefHeight="45.0" prefWidth="80.0" style="-fx-background-color: #9990;" styleClass="button-send_light" visible="false" AnchorPane.bottomAnchor="42.0" AnchorPane.rightAnchor="54.0" />
+   </children>
+</AnchorPane>

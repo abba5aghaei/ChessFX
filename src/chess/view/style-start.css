@@ -1,0 +1,28 @@
+.anchor{
+    -fx-background-color: #ccffcc;
+}
+@font-face {
+    src: url("resources/fonts/BNazanin.ttf");
+}
+.label {
+    -fx-font-size: 18;
+    -fx-font-family: "B Nazanin";
+}
+.text-field {
+    -fx-font-size: 16;
+    -fx-font-family: "B Nazanin";
+}
+.button {
+    -fx-font-size: 18;
+    -fx-font-family: "B Nazanin";
+    -fx-background-color: #7cb342;
+    -fx-text-fill: #ffff;
+}
+.combo-box {
+    -fx-font-size: 18;
+    -fx-font-family: "B Nazanin";
+}
+.radio-button {
+    -fx-font-size: 18;
+    -fx-font-family: "B Nazanin";
+}
