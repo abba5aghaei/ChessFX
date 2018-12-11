@@ -29,6 +29,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.stage.WindowEvent;
 
 public class Controller {
@@ -146,6 +147,8 @@ public class Controller {
 	private Label toaster;
 
 	public void initialize() {
+		Font.loadFont(Controller.class.getResource("resources/fonts/BNazanin.ttf").toExternalForm(), 10);
+		Font.loadFont(Controller.class.getResource("resources/fonts/UrdType.ttf").toExternalForm(), 10);
 		GamePlay.black_player.getKing().setBody(bk);
 		GamePlay.black_player.getQueen().setBody(bq);
 		GamePlay.black_player.getElephent('l').setBody(ble);

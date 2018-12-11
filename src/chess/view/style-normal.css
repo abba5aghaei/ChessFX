@@ -21,9 +21,13 @@
 }
 .label-clock1 {
     -fx-background-image: url('resources/images/clock-normal-black.png');
+    -fx-font-size: 30;
+    -fx-font-family: "B Nazanin";
 }
 .label-clock2 {
     -fx-background-image: url('resources/images/clock-normal-white.png');
+    -fx-font-size: 30;
+    -fx-font-family: "B Nazanin";
 }
 .label-normal {
     -fx-font-size: 40;
